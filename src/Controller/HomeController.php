@@ -2,6 +2,10 @@
 
 namespace App\Controller;
 
+use App\Entity\Post;
+use App\Repository\PostRepository;
+use DateTime;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Twig\Environment;
@@ -16,6 +20,33 @@ class HomeController
     {
         $html = $twig->render('home.html.twig');
         return new Response($html);
+    }
+
+    /**
+     * @Route("/test", name="test")
+     */
+    public function test(EntityManagerInterface $em, PostRepository $repository)
+    {
+        // Pour modifier un post :
+        // $post = $repository->find(2);
+        // $post->setTitle('Nouveau titre');
+        // $em->flush();
+
+        //Pour créer un post :
+        // $post = new Post();
+        // $post
+        //     ->setTitle('Mon premier article')
+        //     ->setContent('Mon super contenu d\'article')
+        //     ->setCreatedAt(new DateTime());
+        // $em->persist($post);
+        // $em->flush();
+
+        //Pour supprimer un post :
+        // $post = $repository->find(1);
+        // $em->remove($post);
+        // $em->flush();
+
+        // dd($post);
     }
 
     /**
