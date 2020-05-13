@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block body %}
+
+    <h1>Créer un article</h1>
+
+    {# {{ form(postForm) }} #}
+    {{ form_start(postForm) }}
+    <p>remplissez ce formulaire</p>
+    {{ form_row(postForm.title) }}
+    {{ form_row(postForm.content) }}
+    {{ form_row(postForm.image) }}
+    {{ form_row(postForm.category) }}
+      {{ form_row(postForm.tags) }}
+    <button type="submit" >Inscription</button>
+    {{ form_end(postForm) }}
+{% endblock %}

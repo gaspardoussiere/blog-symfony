@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bienvenue sur les évènements{% endblock %}
+
+{% block body %}
+    <h1>Bienvenue sur les évènements</h1>
+    {% for event in events %}
+        <h2>{{event.title}}</h2>
+        {# <small>Dans la catégorie {{ event.eventCategory }}</small> #}
+        <h3>Le {{event.time | date('d/m/Y')}} à {{event.place}}</h3>
+        <a href="{{ path('event_show', {'id':event.id}) }}">Lire la suite</a>
+        {# <a href="{{ path('event_delete', {'id':event.id}) }}">Supprimer</a> #}
+    {% endfor %}
+{% endblock %}

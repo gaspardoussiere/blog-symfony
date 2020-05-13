@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bienvenue sur les évènements{% endblock %}
+
+{% block body %}
+    <h1>Bienvenue votre évènement</h1>
+
+        <h2>{{event.title}}</h2>
+        {# <small>Dans la catégorie {{ event.eventCategory }}</small> #}
+        <h3>Le {{event.time | date('d/m/Y')}} à {{event.place}}</h3>
+        <p>{{event.description}}</p>
+  
+{% endblock %}

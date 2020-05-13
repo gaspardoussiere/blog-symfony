@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bienvenue sur l'école{% endblock %}
+
+{% block body %}
+
+    <h1>Bienvenue à l'école</h1>
+    {% for eleve in eleves %}
+        <h2>{{eleve.firstName}} {{eleve.lastName}}</h2>
+        <small>Dans la classe {{eleve.classe.name}}</small>
+        <a href="{{ path('school_delete', {'id':eleve.id}) }}">Supprimer</a>    {% endfor %}
+{% endblock %}

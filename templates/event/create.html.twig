@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+    <h1>Créer un event</h1>
+
+
+    {{ form_start(eventForm) }}
+    <p>remplissez ce formulaire</p>
+    {{ form_row(eventForm.title) }}
+    {{ form_row(eventForm.description) }}
+    {{ form_row(eventForm.place) }}
+    {{ form_row(eventForm.time) }}
+    {{ form_row(eventForm.image) }}
+    {{ form_row(eventForm.eventCategory) }}
+    <button type="submit" >créer</button>
+    {{ form_end(eventForm) }}
+{% endblock %}

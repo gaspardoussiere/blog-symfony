@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bienvenue sur le blog{% endblock %}
+
+{% block body %}
+
+    <h1>Bienvenue sur le blog</h1>
+    {% for post in posts %}
+        <h2>{{post.title}}</h2>
+        <small>Dans la catégorie {{ post.category.title }} publié le {{ post.createdAt | date('d/m/Y')}} à {{ post.createdAt | date('H:i')}} </small>
+        <img src="{{ post.image }}" alt="{{ post.title }}">
+        <a href="{{ path('post_show', {'id':post.id}) }}">Lire la suite</a>
+        <a href="{{ path('post_delete', {'id':post.id}) }}">Supprimer</a>
+    {% endfor %}
+{% endblock %}

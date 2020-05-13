@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bienvenue sur le blog{% endblock %}
+
+{% block body %}
+
+    <h1>{{post.title}}</h1>
+    <strong>Tags : </strong>
+    {% for tag in post.tags %}
+        <span class="badge-primary">{{ tag.title }}</span>
+    {% endfor %}
+    <img src="{{ post.image }}" alt="{{ post.title }}">
+    <small>Dans la catégorie {{ post.category.title }} publié le {{ post.createdAt | date('d/m/Y')}} à {{ post.createdAt | date('H:i')}} </small>
+    <p>{{post.content}}</p>
+    <hr>
+    {% if post.comments | length == 0 %}
+    <h2>Soyez le premier à réagir</h2>
+    {% else %}
+        <h2>Déjà {{ post.comments | length }} réactions </h2>
+        {% for comment in post.comments %}
+            <strong>{{ comment.author }}</strong> (le {{ comment.createdAt | date('d/m/Y') }})
+            <blockquote>{{ comment.content }}</blockquote>
+            <hr>
+         
+        {% endfor %}
+    {% endif %}
+    {{ form_start(commentForm) }}
+
+         {{ form_widget(commentForm) }}
+
+        <button type="submit" class= btn btn-succes>Commenter</button>
+
+         {{ form_end(commentForm) }}
+{% endblock %}

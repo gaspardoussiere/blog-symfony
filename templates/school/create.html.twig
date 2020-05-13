@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bienvenue sur l'école{% endblock %}
+
+{% block body %}
+
+    <h1>Créer un élève</h1>
+
+
+    {{ form_start(eleveForm) }}
+    <p>remplissez ce formulaire</p>
+    {{ form_row(eleveForm.firstName) }}
+    {{ form_row(eleveForm.lastName) }}
+    {{ form_row(eleveForm.classe) }}
+    <button type="submit" >Enregistrer</button>
+    {{ form_end(eleveForm) }}
+{% endblock %}
